@@ -1,0 +1,165 @@
+$headerTransition: 0.4s;
+
+header {
+  position: fixed;
+  z-index: 50;
+  width: 100%;
+  transition: all $headerTransition ease-in-out;
+  .grid {
+    @include grid();
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 38px 0;
+    transition: all $headerTransition ease-in-out;
+    .flex {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      grid-column-start: 1;
+      grid-column-end: 13;
+      height: 100%;
+      .logo {
+        svg {
+          width: 30px;
+          fill: #ffffff;
+          transition: all $headerTransition ease-in-out;
+        }
+      }
+      nav {
+        ul {
+          li {
+            display: inline-block;
+            margin-left: 30px;
+            a {
+              text-transform: uppercase;
+              text-decoration: none;
+              font-family: "Montserrat";
+              font-size: 12px;
+              font-weight: 700;
+              letter-spacing: 0.1em;
+              color: #ffffff;
+              transition: all $headerTransition ease-in-out;
+            }
+            &:first-child {
+              margin-left: 0;
+            }
+          }
+          .active {
+            a {
+              cursor: not-allowed;
+              pointer-events: none;
+              color: #1ecbc6;
+            }
+          }
+          .switchNav {
+            display: none;
+            span {
+              display: block;
+              width: 20px;
+              height: 3px;
+              background: #ffffff;
+              transition: all $headerTransition ease-in-out;
+              &:nth-of-type(2), &:nth-of-type(3) {
+                margin-top: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .progressBar {
+    position: fixed;
+    opacity: 0;
+    z-index: 100;
+    width: 100%;
+    height: 3px;
+    span {
+      display: block;
+      width: 100px;
+      height: 100%;
+      background: #1ecbc6;
+    }
+  }
+}
+
+header.scrolled {
+  background: #ffffff;
+  box-shadow: 0px 0px 25px -10px rgba(0,0,0,0.5);
+  transition: all $headerTransition ease-in-out;
+  $mSize: 15px;
+  margin: $mSize;
+  width: calc(100% - #{$mSize} * 2);
+  .grid {
+    transition: all $headerTransition ease-in-out;
+    padding: 15px 0;
+    .flex {
+      .logo svg {
+        transition: all $headerTransition ease-in-out;
+        fill: #191919;
+      }
+      nav {
+        ul {
+          li:not(.active) {
+            a {
+              transition: all $headerTransition ease-in-out;
+              color: #191919;
+            }
+          }
+          .switchNav span {
+            background: #191919;
+            transition: all $headerTransition ease-in-out;
+          }
+        }
+      }
+    }
+  }
+  .progressBar {
+    transition: all $headerTransition ease-in-out;
+    opacity: 1;
+    width: calc(100% - #{$mSize} * 2);
+  }
+}
+
+@media screen and (max-width: 1260px) {
+  header {
+    .grid {
+      max-width: none;
+      width: 100%;
+      padding: 38px;
+    }
+  }
+  header.scrolled {
+    .grid {
+      padding: 15px 38px;
+    }
+  }
+}
+
+@media screen and (max-width: 860px) {
+  header {
+    .grid {
+      .flex {
+        nav {
+          ul {
+            li {
+              display: none;
+            }
+            .switchNav {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 440px) {
+  header {
+    .grid {
+      grid-column-gap: 0;
+    }
+  }
+}

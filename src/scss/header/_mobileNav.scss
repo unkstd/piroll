@@ -1,0 +1,73 @@
+.mobileNav {
+  display: none;
+  position: fixed;
+  z-index: 800;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.7);
+  height: 100vh;
+  overflow: hidden;
+  nav {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    height: 0;
+    $mSize: 15px;
+    margin: $mSize;
+    width: calc(100% - #{$mSize * 2});
+    background: #ffffff;
+    overflow: hidden;
+    ul {
+      padding: 0 8px;
+      li {
+        display: inline-block;
+        margin: 0 15px 10px;
+        a {
+          text-decoration: none;
+          color: black;
+          font-family: "Montserrat";
+          font-weight: 700;
+          font-size: 26px;
+        }
+      }
+    }
+    .switchNav {
+      height: 20px;
+      position: absolute;
+      bottom: 15px;
+      cursor: pointer;
+      span {
+        display: block;
+        width: 15px;
+        height: 3px;
+        background: #000;
+        &:nth-of-type(1) {
+          transform: rotate(-45deg) translateX(-12px) translateY(5px);
+        }
+        &:nth-of-type(2) {
+          transform: rotate(45deg) translateX(9px) translateY(3px);
+        }
+      }
+    }
+  }
+}
+
+.mobileNav.activeNav {
+  display: block;
+}
+
+@media screen and (max-width: 420px) {
+  .mobileNav {
+    nav {
+      ul {
+        li {
+          margin: 0 10px 10px;
+          a {
+            font-size: 21px;
+          }
+        }
+      }
+    }
+  }
+}

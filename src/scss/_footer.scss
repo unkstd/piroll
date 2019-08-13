@@ -1,0 +1,113 @@
+footer {
+  background: #141414;
+  padding: 100px 0;
+  .wrapper {
+    @include grid();
+    max-width: 1170px;
+    margin: 0 auto;
+    * {
+      color: #bcbcbc;
+      font-family: "Nunito Sans";
+      text-decoration: none;
+    }
+    .name {
+      grid-column: 1 / 5;
+      h5 {
+        color: #ffffff;
+        font-family: "Montserrat";
+        font-size: 18px;
+        letter-spacing: 0.01em;
+        margin-bottom: 28px;
+      }
+      span {
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+    .contacts {
+      grid-column: 5 / 7;
+      a {
+        font-size: 16px;
+        line-height: 24px;
+        transition: color 0.2s ease-out;
+        &:hover {
+          color: #f8f8f8;
+        }
+      }
+    }
+    .pages {
+      grid-column: 8 / 11;
+      ul {
+        display: inline-block;
+        &:last-child {
+          margin-left: 60px;
+        }
+        li a {
+          font-size: 16px;
+          line-height: 24px;
+          letter-spacing: 0.005em;
+          transition: color 0.2s ease-out;
+          &:hover {
+            color: #f8f8f8;
+          }
+        }
+      }
+    }
+    .socials {
+      ul li a {
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.005em;
+        transition: color 0.2s ease-out;
+        &:hover {
+          color: #f8f8f8;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1260px) {
+  footer {
+    .wrapper {
+      grid-column-gap: 0;
+      max-width: none;
+      width: 100%;
+      padding: 0 35px;
+    }
+  }
+}
+
+@media screen and (max-width: 890px) {
+  footer {
+    .wrapper {
+      grid-row-gap: 25px;
+      .name,
+      .pages {
+        grid-column: 1 / 7;
+      }
+      .contacts,
+      .socials {
+        grid-column: 7 / 13;
+        text-align: right;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  footer {
+    padding: 50px 0;
+    .wrapper {
+      .name,
+      .pages {
+        grid-column: 1 / 13;
+      }
+      .contacts,
+      .socials {
+        grid-column: 1 / 13;
+        text-align: left;
+      }
+    }
+  }
+}
