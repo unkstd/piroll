@@ -58,16 +58,10 @@
 }
 
 @media screen and (max-width: 420px) {
-  .mobileNav {
-    nav {
-      ul {
-        li {
-          margin: 0 10px 10px;
-          a {
-            font-size: 21px;
-          }
-        }
-      }
+  .mobileNav nav ul li {
+    margin: 0 10px 10px;
+    a {
+      font-size: 21px;
     }
   }
 }
